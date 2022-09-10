@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+  <installSettings>
+	<!-- Software name, msi path, attributes for msi package-->
+    <value productName="Software 1"
+           productPath="\\servernameorcomputer\fullpathtomsi\msifile.msi"
+           arguments="FORALLUSER=1 CREATETEMPFOLDER=0"/>
+    <value productName="Software 2"
+           productPath="\\servernameorcomputer\fullpathtomsi\msifile.msi"
+           arguments=""/>
+    <value productName="Software 3"
+           productPath="\\servernameorcomputer\fullpathtomsi\msifile.msi"
+           arguments=""/>
+    <value productName="Software 4"
+           productPath="\\servernameorcomputer\fullpathtomsi\msifile.msi"
+           arguments=""/>
+  </installSettings>
+  <baseSettings>
+	<!--  -->
+    <base nameForUser="1C Зарплата" serverName="servernamea" dbName="1c_base_a"/>
+    <base nameForUser="1C УПП" serverName="servernameb" dbName="1c_base_b"/>
+    <base nameForUser="1C CRM" serverName="servernamec" dbName="1c_base_c"/>
+  </baseSettings>
+  <creds>
+	<!-- login and password from EncryptorConsoleUI -->
+    <topSecret login="aHPU2+YwxMOccDygu1QE/w==" password="c+jHhdhf95KW/ulLvonXhA=="/>
+  </creds>
+</appSettings>

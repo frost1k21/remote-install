@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="RemoteInstall.WpfUI.Views.ShowResultAfterOperation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel>
+            <DockPanel Visibility="{Binding Path=StatusInstallOrEdit.InProcess}">
+                <ProgressBar Height="35" Width="35"
+                             Style="{StaticResource MaterialDesignCircularProgressBar}"
+                             Value="35"
+                             IsIndeterminate="True" />
+                <WrapPanel>
+                    <TextBlock Text="{Binding Path=StatusInstallOrEdit.StatusMessage}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Margin="15 0 0 0"
+                        TextWrapping="Wrap"
+                        Style="{StaticResource MaterialDesignTitleTextBlock}"/>
+                </WrapPanel>
+            </DockPanel>
+            <DockPanel Visibility="{Binding Path=StatusInstallOrEdit.IsComplete}" Background="#c4f5c8">
+                <materialDesign:PackIcon Kind="CommentCheckOutline"
+                                         VerticalAlignment="Center" HorizontalAlignment="Center"
+                                         Foreground="{DynamicResource PrimaryHueDarkBrush}"
+                                         Width="35" Height="35"/>
+                <WrapPanel>
+                    <TextBlock Text="{Binding Path=StatusInstallOrEdit.StatusMessage}" HorizontalAlignment="Center"
+                           TextWrapping="Wrap"
+                           Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="15 0 0 0"/>
+                </WrapPanel>
+            </DockPanel>
+            <DockPanel Visibility="{Binding Path=StatusInstallOrEdit.InError}" Background="#fcb6ac">
+                <materialDesign:PackIcon Kind="CommentRemoveOutline" 
+                                         VerticalAlignment="Center" HorizontalAlignment="Center"
+                                         Foreground="{DynamicResource PrimaryHueDarkBrush}"
+                                         Width="35" Height="35" />
+                <WrapPanel>
+                    <TextBlock Text="{Binding Path=StatusInstallOrEdit.StatusMessage}" HorizontalAlignment="Center"
+                           TextWrapping="Wrap"
+                           Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="15 0 0 0"/>
+                </WrapPanel>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="На установку" Margin="10 10 5 10" Command="{Binding NavigateCommand}" CommandParameter="SectionInstall"/>
+            <Button Content="На настройку 1С баз" Margin="10 10 5 10" Command="{Binding NavigateCommand}" CommandParameter="SectionEditOneCBases"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
